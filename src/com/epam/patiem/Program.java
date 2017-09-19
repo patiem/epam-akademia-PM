@@ -9,16 +9,15 @@ public class Program {
 
     Scanner scanner;
     Boolean running;
-    Path startPath;
-    File currentFile;
+    CurrentDirectory currentDirectory;
+
+
     String prompt = "$>";
 
     public Program(Scanner scanner) {
         this.scanner = scanner;
         running = true;
-        startPath = Paths.get("");
-        //String s = startPath.toAbsolutePath().toString();
-        currentFile = new File(startPath.toAbsolutePath().toString());
+        currentDirectory = new CurrentDirectory();
     }
 
 
@@ -26,7 +25,7 @@ public class Program {
 
         String command;
 
-        while(running) {
+        while (running) {
 
             System.out.print(prompt);
             command = scanner.nextLine();
@@ -34,11 +33,11 @@ public class Program {
             switch (command.split(" ")[0]) {
 
                 case "dir":
-                    showFilesInDirectory();
+                    currentDirectory.showFilesInDirectory();
                     break;
 
                 case "cd":
-                    changeDirectory(command);
+                    currentDirectory.changeDirectory(command);
                     break;
 
                 case "exit":
@@ -46,36 +45,7 @@ public class Program {
                     break;
 
             }
-
-            //running = false;
-
-        }
-    }
-
-    private void changeDirectory(String command) {
-
-        String dirName = command.split(" ")[1];
-
-        if (dirName.equals("..")) {
-            currentFile = currentFile.getParentFile();
-        }
-    }
-
-    private void showFilesInDirectory() {
-
-
-        //Path currentRelativePath = Paths.get("");
-//        String s = currentPath.toAbsolutePath().toString();
-//        File file = new File(s);
-        File[] allFiles = currentFile.listFiles();
-
-        String prefix;
-        boolean isFile;
-
-        for (File f : allFiles) {
-            isFile = f.isFile();
-            prefix = isFile ? "FILE ":"DIR  ";
-            System.out.println(prefix + f.getName());
         }
     }
 }
+
