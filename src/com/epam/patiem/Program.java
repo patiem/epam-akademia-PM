@@ -12,6 +12,7 @@ public class Program {
     CurrentDirectory currentDirectory;
 
 
+
     String prompt = "$>";
 
     public Program(Scanner scanner) {

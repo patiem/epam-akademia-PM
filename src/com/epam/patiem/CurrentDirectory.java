@@ -23,13 +23,13 @@ public class CurrentDirectory {
         String dirName = command.split(" ")[1];
         try {
             if (dirName.equals("..") ) {
-
                 currentFile = currentFile.getParentFile();
             } else {
-                Path newDir = Paths.get(dirName);
+                String fileName = currentFile.getAbsolutePath() + "/" + dirName;
+                Path newDir = Paths.get(fileName);
                 File changeToDir = new File(newDir.toAbsolutePath().toString());
                 if (changeToDir.exists()) {
-                    currentFile = new File(newDir.toAbsolutePath().toString());
+                    currentFile = changeToDir;
                 } else {
                     throw new NullPointerException("No such directory");
                 }
