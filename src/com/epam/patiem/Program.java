@@ -44,7 +44,14 @@ public class Program {
         String s = currentRelativePath.toAbsolutePath().toString();
         File file = new File(s);
         File[] allFiles = file.listFiles();
-        for (File f : allFiles)
-            System.out.println(f.getName());
+
+        String prefix;
+        boolean isFile;
+
+        for (File f : allFiles) {
+            isFile = f.isFile();
+            prefix = isFile ? "FILE  ":"DIR  ";
+            System.out.println(prefix + f.getName());
+        }
     }
 }
