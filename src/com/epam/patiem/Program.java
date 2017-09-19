@@ -1,8 +1,5 @@
 package com.epam.patiem;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Program {
@@ -44,6 +41,13 @@ public class Program {
                 case "exit":
                     running = false;
                     break;
+
+                case "prompt" :
+                    printer.setPrompt(command);
+                    break;
+
+                default:
+                    printer.printMessage("Wrong command");
 
             }
         }
