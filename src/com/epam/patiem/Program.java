@@ -52,6 +52,10 @@ public class Program {
                     printer.printMessage("Sorry :D");
                     break;
 
+                case "statistics" :
+                    printer.printMessage("Sorry :D");
+                    break;
+
                 default:
                     printer.printMessage("Wrong command");
 

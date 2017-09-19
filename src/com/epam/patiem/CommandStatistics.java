@@ -19,7 +19,13 @@ public class CommandStatistics implements MenageStatistics {
 
     @Override
     public void add(Commands command, Boolean isSuccssed) {
-
+        //I know it could be done better with stream lambdas and unicorns ;)
+        for (SimpleStats stat: listOfStats){
+            if (stat.getName().equals(command)) {
+                if (isSuccssed) stat.setSuccess();
+                else stat.setFail();
+            }
+        }
     }
 
     @Override

@@ -26,16 +26,16 @@ public class SimpleStats {
         return success;
     }
 
-    public void setSuccess(Integer success) {
-        this.success = success;
+    public void setSuccess() {
+        this.success += 1;
     }
 
     public Integer getFail() {
         return fail;
     }
 
-    public void setFail(Integer fail) {
-        this.fail = fail;
+    public void setFail() {
+        this.fail += 1;
     }
 
 
