@@ -8,7 +8,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         TerminalPrinter printer = new TerminalPrinter();
-        Program pr = new Program(scanner, printer);
+        MenageStatistics stats = new CommandStatistics();
+        Program pr = new Program(scanner, printer, stats);
         pr.run();
     }
 }

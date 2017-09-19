@@ -1,6 +1,7 @@
 package com.epam.patiem;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -32,10 +33,10 @@ public class CurrentDirectory {
                 if (changeToDir.exists()) {
                     currentFile = changeToDir;
                 } else {
-                    throw new NullPointerException("No such directory");
+                    throw new IOException("No such directory");
                 }
             }
-        } catch (NullPointerException e) {
+        } catch (IOException e) {
 
             System.out.println(e.getMessage());
         }

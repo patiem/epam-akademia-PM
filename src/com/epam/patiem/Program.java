@@ -8,12 +8,14 @@ public class Program {
     Boolean running;
     CurrentDirectory currentDirectory;
     TerminalPrinter printer;
+    MenageStatistics stats;
 
 
-    public Program(Scanner scanner, TerminalPrinter printer) {
+    public Program(Scanner scanner, TerminalPrinter printer, MenageStatistics statistics) {
         this.scanner = scanner;
         running = true;
         currentDirectory = new CurrentDirectory();
+        stats = statistics;
         this.printer = printer;
 
     }
@@ -44,6 +46,10 @@ public class Program {
 
                 case "prompt" :
                     checkPromptOptions(command);
+                    break;
+
+                case "tree" :
+                    printer.printMessage("Sorry :D");
                     break;
 
                 default:
