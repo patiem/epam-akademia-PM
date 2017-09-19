@@ -30,9 +30,15 @@ public class Program {
 
                 case "dir":
                     showFilesInDirectory();
+                    break;
+
+                case "exit":
+                    running = false;
+                    break;
+
             }
 
-            running = false;
+            //running = false;
 
         }
     }
