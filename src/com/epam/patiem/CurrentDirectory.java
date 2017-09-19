@@ -20,7 +20,7 @@ public class CurrentDirectory {
         currentFile = new File(startPath.toAbsolutePath().toString());
     }
 
-    protected void changeDirectory(String command) {
+    protected String changeDirectory(String command) {
 
         String dirName = command.split(" ")[1];
         try {
@@ -32,14 +32,15 @@ public class CurrentDirectory {
                 File changeToDir = new File(newDir.toAbsolutePath().toString());
                 if (changeToDir.exists()) {
                     currentFile = changeToDir;
-                } else {
-                    throw new IOException("No such directory");
                 }
             }
-        } catch (IOException e) {
+
+        } catch (NullPointerException e) {
 
             System.out.println(e.getMessage());
         }
+
+        return currentFile.getAbsolutePath().toString();
     }
 
     protected List<String> showFilesInDirectory() {
@@ -64,7 +65,7 @@ public class CurrentDirectory {
     }
 
     public String getCurrentPath() {
-        return currentFile.getPath();
+        return currentFile.getPath().toString();
     }
 }
 

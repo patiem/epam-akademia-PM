@@ -37,7 +37,8 @@ public class Program {
                     break;
 
                 case "cd":
-                    currentDirectory.changeDirectory(command);
+                    String newDir = currentDirectory.changeDirectory(command);
+                    printer.setCwdPrompt(newDir);
                     break;
 
                 case "exit":
@@ -64,9 +65,14 @@ public class Program {
     }
 
     private void checkPromptOptions(String command) {
-        if (command.split(" ")[1].equals("$cwd")) printer.
-        setPrompt(currentDirectory.getCurrentPath());
-            else printer.setPrompt(command.split(" ")[1]);
+        if (command.split(" ")[1].equals("$cwd")) {
+            printer.setCwd(true);
+            printer.setPrompt(currentDirectory.getCurrentPath());
+        }
+            else {
+            printer.setCwd(false);
+            printer.setPrompt(command.split(" ")[1]);
+        }
     }
 }
 
