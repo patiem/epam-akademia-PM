@@ -34,8 +34,7 @@ public class TerminalPrinter {
         System.out.println(message);
     }
 
-    public void setPrompt(String command) {
-        String newPropmt = command.split(" ")[1];
+    public void setPrompt(String newPropmt) {
         if (newPropmt.equals("reset")) setPromptToDefault();
         else if (newPropmt.equals("$cwd")) getCurrentDir();
         else setCustomPrompt(newPropmt);

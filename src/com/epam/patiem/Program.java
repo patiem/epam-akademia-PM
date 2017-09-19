@@ -54,9 +54,9 @@ public class Program {
     }
 
     private void checkPromptOptions(String command) {
-        if (command.split(" ")[1].equals("$cwd")) printer
-                .printMessage(currentDirectory.getCurrentPath());
-            else printer.setPrompt(command);
+        if (command.split(" ")[1].equals("$cwd")) printer.
+        setPrompt(currentDirectory.getCurrentPath());
+            else printer.setPrompt(command.split(" ")[1]);
     }
 }
 
