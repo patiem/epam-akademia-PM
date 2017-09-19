@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Program pr = new Program(scanner);
+        TerminalPrinter printer = new TerminalPrinter();
+        Program pr = new Program(scanner, printer);
         pr.run();
     }
 }

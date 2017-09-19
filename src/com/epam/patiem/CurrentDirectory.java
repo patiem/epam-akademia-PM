@@ -3,6 +3,8 @@ package com.epam.patiem;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CurrentDirectory {
 
@@ -40,18 +42,25 @@ public class CurrentDirectory {
         }
     }
 
-    protected void showFilesInDirectory() {
+    protected List<String> showFilesInDirectory() {
 
         File[] allFiles = currentFile.listFiles();
+        return makeStrings(allFiles);
+    }
+
+    private List<String> makeStrings(File[] allFiles) {
 
         String prefix;
         boolean isFile;
+        List<String> fileNames = new ArrayList<>();
 
         for (File f : allFiles) {
             isFile = f.isFile();
             prefix = isFile ? "FILE ":"DIR  ";
-            System.out.println(prefix + f.getName());
+            fileNames.add(prefix + f.getName());
         }
+
+        return fileNames;
     }
 }
 

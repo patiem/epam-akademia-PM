@@ -10,15 +10,15 @@ public class Program {
     Scanner scanner;
     Boolean running;
     CurrentDirectory currentDirectory;
+    TerminalPrinter printer;
 
 
-
-    String prompt = "$>";
-
-    public Program(Scanner scanner) {
+    public Program(Scanner scanner, TerminalPrinter printer) {
         this.scanner = scanner;
         running = true;
         currentDirectory = new CurrentDirectory();
+        this.printer = printer;
+
     }
 
 
@@ -28,13 +28,13 @@ public class Program {
 
         while (running) {
 
-            System.out.print(prompt);
+            printer.printPrompt();
             command = scanner.nextLine();
 
             switch (command.split(" ")[0]) {
 
                 case "dir":
-                    currentDirectory.showFilesInDirectory();
+                    printer.printList(currentDirectory.showFilesInDirectory());
                     break;
 
                 case "cd":
