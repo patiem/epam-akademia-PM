@@ -16,7 +16,6 @@ public class CurrentDirectory {
 
         startPath = Paths.get("");
         currentPath = Paths.get("");
-        //String s = startPath.toAbsolutePath().toString();
         currentFile = new File(startPath.toAbsolutePath().toString());
     }
 
@@ -61,6 +60,10 @@ public class CurrentDirectory {
         }
 
         return fileNames;
+    }
+
+    public String getCurrentPath() {
+        return currentFile.getPath();
     }
 }
 

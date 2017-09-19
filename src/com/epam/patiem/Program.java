@@ -43,7 +43,7 @@ public class Program {
                     break;
 
                 case "prompt" :
-                    printer.setPrompt(command);
+                    checkPromptOptions(command);
                     break;
 
                 default:
@@ -51,6 +51,12 @@ public class Program {
 
             }
         }
+    }
+
+    private void checkPromptOptions(String command) {
+        if (command.split(" ")[1].equals("$cwd")) printer
+                .printMessage(currentDirectory.getCurrentPath());
+            else printer.setPrompt(command);
     }
 }
 
